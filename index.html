@@ -47,7 +47,7 @@ const elements = [
   {symbol:"H", name:"水素", number:1},
   {symbol:"He", name:"ヘリウム", number:2},
   {symbol:"Li", name:"リチウム", number:3},
-  {symbol:"Be", name:"ベリ　リウム", number:4},
+  {symbol:"Be", name:"ベリ<br>リウム", number:4},
   {symbol:"B", name:"ホウ素", number:5},
   {symbol:"C", name:"炭素", number:6},
   {symbol:"N", name:"窒素", number:7},
@@ -86,7 +86,7 @@ cards.forEach(card => {
     if (div.classList.contains("flipped") || second) return;
 
     div.classList.add("flipped");
-    div.innerText = card.value;
+    div.innerHTML = card.value;
 
     if (!first) {
       first = div;
@@ -94,21 +94,16 @@ cards.forEach(card => {
       second = div;
 
       if (first.innerText === card.pair) {
+        matched++;  // ←追加
 
-  matched++;  // ←追加
+        first = null;
+        second = null;
 
-  first = null;
-
-  second = null;
-
-  if (matched === totalPairs) {
-
-    setTimeout(() => {
-
-      alert("クリア！");
-
-    }, 300);
-  }
+        if (matched === totalPairs) {
+          setTimeout(() => {
+            alert("クリア！");
+          }, 300);
+        }
       } else {
         setTimeout(() => {
           first.classList.remove("flipped");
