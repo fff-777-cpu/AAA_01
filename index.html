@@ -68,7 +68,9 @@ const game = document.getElementById("game");
 
 let first = null;
 let second = null;
-
+let matched = 0;
+const totalPairs = elements.length;
+  
 cards.forEach(card => {
   const div = document.createElement("div");
   div.className = "card";
