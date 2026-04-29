@@ -33,12 +33,19 @@ body {
 }
 
 .card.flipped {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background: white;
   color: black;
   border: 2px solid #4CAF50;
   z-index: 10;
   position: relative;
+}
+
+.card.matched {
+  background: gold;
+  color: black;
+  border: 2px solid orange;
+  transform: scale(1.03);
 }
   
 </style>
@@ -101,8 +108,11 @@ cards.forEach(card => {
       second = div;
 
       if (first.innerHTML === card.pair) {
-        matched++;  // ←追加
-
+        matched++;
+        
+        first.classList.add("matched");
+        second.classList.add("matched");
+        
         first = null;
         second = null;
 
