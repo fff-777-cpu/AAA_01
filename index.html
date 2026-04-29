@@ -33,7 +33,7 @@ body {
 }
 
 .card.flipped {
-  /*transform: scale(1.05);*/
+  transform: scale(1.01);
   background: white;
   color: black;
   border: 2px solid #4CAF50;
@@ -45,7 +45,7 @@ body {
   background: gold;
   color: black;
   border: 2px solid orange;
-  /*transform: scale(1.03);*/
+  transform: scale(1.005);
 }
   
 </style>
@@ -110,10 +110,11 @@ cards.forEach(card => {
       if (first.innerHTML === card.pair) {
         matched++;
         
-        first.classList.remove("flipped");
-        second.classList.remove("flipped");
         first.classList.add("matched");
         second.classList.add("matched");
+
+        first.classList.remove("flipped");
+        second.classList.remove("flipped");
         
         first = null;
         second = null;
