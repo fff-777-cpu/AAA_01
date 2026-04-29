@@ -88,8 +88,21 @@ cards.forEach(card => {
       second = div;
 
       if (first.innerText === card.pair) {
-        first = null;
-        second = null;
+
+  matched++;  // ←追加
+
+  first = null;
+
+  second = null;
+
+  if (matched === totalPairs) {
+
+    setTimeout(() => {
+
+      alert("クリア！");
+
+    }, 300);
+  }
       } else {
         setTimeout(() => {
           first.classList.remove("flipped");
